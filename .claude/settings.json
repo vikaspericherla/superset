@@ -6,7 +6,25 @@
         "hooks": [
           {
             "type": "command",
-            "command": "jq -r '.tool_input.command // \"\"' | grep -qE '^git commit' && cd \"$CLAUDE_PROJECT_DIR\" && echo '🔍 Running pre-commit before commit...' && pre-commit run || true"
+            "command": "jq -r '.tool_input.command // \"\"' | grep -qE '^git commit' && cd \"$CLAUDE_PROJECT_DIR\" && echo '\ud83d\udd0d Running pre-commit before commit...' && pre-commit run || true"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash|Grep",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "graphify hook-guard search"
+          }
+        ]
+      },
+      {
+        "matcher": "Read|Glob",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "graphify hook-guard read"
           }
         ]
       }
