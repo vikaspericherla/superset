@@ -122,6 +122,16 @@ FEATURE_FLAGS = {
     "SEMANTIC_LAYERS": True,
 }
 EXTENSIONS_PATH = "/app/docker/extensions"
+LOCAL_EXTENSIONS = ["/app/docker/extensions/atscale-mcp-adapter"]
+ATSCALE_MCP_EXTENSION_SRC = (
+    "/app/docker/extensions/atscale-mcp-adapter/dist/backend/src"
+)
+if ATSCALE_MCP_EXTENSION_SRC not in sys.path:
+    sys.path.insert(0, ATSCALE_MCP_EXTENSION_SRC)
+
+# Register the local SQLAlchemy dialect before Superset validates database URIs.
+import superset.db_engine_specs.atscale  # noqa: E402,F401
+
 ALERT_REPORTS_NOTIFICATION_DRY_RUN = True
 # The Docker Compose app service is named "superset" and listens on 8088. Report
 # paths are root-relative, so urljoin drops the base path; only the scheme, host,

@@ -22,6 +22,7 @@ import { useListViewResource } from 'src/views/CRUD/hooks';
 import { ListView } from 'src/components';
 import SubMenu, { SubMenuProps } from 'src/features/home/SubMenu';
 import withToasts from 'src/components/MessageToasts/withToasts';
+import AtScaleModelSelector from './AtScaleModelSelector';
 
 const PAGE_SIZE = 25;
 
@@ -76,6 +77,7 @@ const ExtensionsList: FunctionComponent<ExtensionsListProps> = ({
   return (
     <>
       <SubMenu {...menuData} />
+      <AtScaleModelSelector />
       <ListView<Extension>
         columns={columns}
         count={resourceCount}

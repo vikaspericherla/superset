@@ -1,0 +1,13 @@
+{
+  "id": "pentland.atscale-mcp-adapter",
+  "publisher": "pentland",
+  "name": "atscale-mcp-adapter",
+  "displayName": "AtScale MCP Adapter",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "description": "Expose AtScale semantic models and governed metadata through Superset.",
+  "permissions": [],
+  "backend": {
+    "entrypoint": "pentland.atscale_mcp.entrypoint"
+  }
+}
